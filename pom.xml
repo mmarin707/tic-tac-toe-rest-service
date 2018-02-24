@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tic-tac-toe-rest</name>
 	<packaging>war</packaging>
-
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -43,6 +43,7 @@
 
 
 	<build>
+	<finalName>tic-tac-toe-rest</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
