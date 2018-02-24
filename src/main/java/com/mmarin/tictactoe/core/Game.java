@@ -3,8 +3,6 @@ package com.mmarin.tictactoe.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.experimental.theories.Theories;
-
 import com.mmarin.tictactoe.exception.InvalidMoveException;
 
 /**
@@ -173,7 +171,7 @@ public class Game {
 	
 	/**
 	 * 
-	 * @return list of {@link Move}s performed on {@link Theories} game.
+	 * @return list of {@link Move}s performed in game.
 	 */
 	public List<Move> getMoves() {
 		return moves;
