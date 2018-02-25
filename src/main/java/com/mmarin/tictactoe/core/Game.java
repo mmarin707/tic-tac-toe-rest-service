@@ -15,13 +15,15 @@ public class Game {
 	public final static int MAX_MOVES = 9;
 	
 	private final long gameId;
+	private GameStatus gameStatus;
+	private Player currentPlayer;
 	private final Player player1;
 	private final Player player2;
 	private final Board board;
 	private final List<Move> moves;
 	private int moveNumber;
-	private Player currentPlayer;
-	private GameStatus gameStatus;
+
+
 	
 	public Game(Player player1, Player player2) {
 

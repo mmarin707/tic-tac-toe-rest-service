@@ -13,4 +13,16 @@ public enum MarkType {
 	O,
 	__;
 	
+	
+	/**
+	 * 
+	 * if mark is X then O is returned, else X is returned.
+	 * 
+	 * @return opposite mark
+	 */
+	public MarkType getOpposite() {
+	
+		return this.ordinal() == X.ordinal() ? O : X;
+	}
+	
 }

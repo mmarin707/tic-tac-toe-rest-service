@@ -9,7 +9,7 @@ package com.mmarin.tictactoe.core;
  */
 public class Cell {
 
-	private final MarkType markType;
+	private MarkType markType;
 	private final int row;
 	private final int column;
 	
@@ -23,6 +23,10 @@ public class Cell {
 	
 	public MarkType getMarkType() {
 		return markType;
+	}
+	
+	public void setMarkType(MarkType markType) {
+		this.markType = markType;
 	}
 
 	public int getRow() {

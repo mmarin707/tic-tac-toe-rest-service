@@ -7,7 +7,7 @@ import com.mmarin.tictactoe.core.PlayerData;
 
 /**
  * 
- * This class implements weak compute strategy. 
+ * This class implements weak computer strategy. 
  * 
  * @author mmarin
  *
@@ -21,13 +21,10 @@ public class WeakComputerMoveStrategy implements IComputerMoveStrategy {
 	@Override
 	public boolean matches(PlayerData opponent) {
 		
-		return PERCENT_30.compareTo(opponent.getWinPercentage()) <= 0;
+		return PERCENT_30.compareTo(opponent.getWinPercentage()) >= 0;
 		
 	}
-	
 
-	
-	
 	@Override
 	public Cell move(Board board, MarkType markType) {
 		

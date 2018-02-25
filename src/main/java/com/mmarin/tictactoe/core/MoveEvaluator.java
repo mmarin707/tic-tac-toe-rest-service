@@ -76,6 +76,10 @@ public class MoveEvaluator {
 			   (markType.equals(board.getCell(0, 0).getMarkType()) &&
 			    markType.equals(board.getCell(1, 1).getMarkType()) &&
 				markType.equals(board.getCell(2, 2).getMarkType()))
+			    ||
+			   (markType.equals(board.getCell(0, 2).getMarkType()) &&
+			    markType.equals(board.getCell(1, 1).getMarkType()) &&
+				markType.equals(board.getCell(2, 0).getMarkType()))
 			   ? true : false;
 		
 		

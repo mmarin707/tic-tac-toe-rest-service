@@ -51,6 +51,12 @@ public class GameServiceImpl implements GameService {
 		
 		Game  game = GameStorage.get(gameId);
 		
+		if (game == null) {
+			
+			throw new IllegalArgumentException("There is no game with id: " + gameId);
+			
+		}
+		
 		if (!GameStatus.PLAYING.equals(game.getGameStatus())) {
 			
 			return game;
@@ -58,9 +64,9 @@ public class GameServiceImpl implements GameService {
 		
 		game.move(row, 
 				  column);
-		
+
 		computerMove(game);
-		
+
 		updatePlayerData(game);
 		
 		return game;
@@ -70,7 +76,16 @@ public class GameServiceImpl implements GameService {
 	
 	@Override
 	public Game status(Long gameId) {
-		return GameStorage.get(gameId);
+		
+		Game game = GameStorage.get(gameId);
+		
+		if (game == null) {
+			
+			throw new IllegalArgumentException("There is no game with id: " + gameId);
+			
+		}
+		
+		return game;
 	}
 	
 	
@@ -78,7 +93,15 @@ public class GameServiceImpl implements GameService {
 	@Override
 	public PlayerData stats(String username) {
 		
-		return PlayerDataStorage.get(username);
+		PlayerData playerData = PlayerDataStorage.get(username);
+		
+		if (playerData == null) {
+			
+			throw new IllegalArgumentException("There is no player with username: " + username);
+			
+		}
+		
+		return playerData;
 		
 	}
 
@@ -121,8 +144,10 @@ public class GameServiceImpl implements GameService {
 	 */
 	private void computerMove(Game game) {
 		
-		if (Player.COMPUTER.equals(game.getAwaitPlayer().getUsername())) {
-			
+		if (Player.COMPUTER.equals(game.getAwaitPlayer().getUsername())
+				||
+			!GameStatus.PLAYING.equals(game.getGameStatus())) {
+	
 			return;
 		}
 		
@@ -133,6 +158,11 @@ public class GameServiceImpl implements GameService {
 							.move(game.getBoard(), 
 								  game.getCurrentPlayer()
 								  	.getMarkType());
+		
+		//nema moguceg poteza
+		if (move == null) {
+			return;
+		}
 		
 		game.move(move.getRow(), move.getColumn());
 		

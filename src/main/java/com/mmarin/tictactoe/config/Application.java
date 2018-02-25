@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import com.mmarin.tictactoe.ai.ComputerMoveStrategySelector;
 import com.mmarin.tictactoe.ai.IComputerMoveStrategy;
 import com.mmarin.tictactoe.ai.IComputerMoveStrategySelector;
+import com.mmarin.tictactoe.ai.StrongComputerMoveStrategy;
 import com.mmarin.tictactoe.ai.WeakComputerMoveStrategy;
 import com.mmarin.tictactoe.core.GameService;
 import com.mmarin.tictactoe.core.GameServiceImpl;
@@ -51,6 +52,11 @@ public class Application extends SpringBootServletInitializer{
 	}
 	
 	@Bean
+	public IComputerMoveStrategy strongComputerMoveStrategy() {
+		return new StrongComputerMoveStrategy();
+	}
+	
+	@Bean
 	public IComputerMoveStrategySelector iComputerMoveStrategySelector() {
 		
 		ComputerMoveStrategySelector computerMoveStrategySelector 
@@ -58,6 +64,8 @@ public class Application extends SpringBootServletInitializer{
 		
 		List<IComputerMoveStrategy> strategys = new ArrayList<IComputerMoveStrategy>();
 		strategys.add(weakComputerMoveStrategy());
+		strategys.add(strongComputerMoveStrategy());
+		
 		
 		computerMoveStrategySelector.setiComputerMoveStrategies(strategys);
 	
