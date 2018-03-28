@@ -16,7 +16,7 @@ public class GameStorage {
 
 	private static final Map<Long, Game> GAMEMAP = new HashMap<Long, Game>();
 	
-	public static void put(Game game) {
+	public synchronized static void put(Game game) {
 		
 		Game temp = GAMEMAP.get(game.getGameId());
 		

@@ -26,7 +26,7 @@ public class PlayerDataStorage {
 	}
 	
 	
-	public static void put(String username) {
+	public synchronized static void put(String username) {
 		
 		PlayerData playerData = new PlayerData(username);
 		
